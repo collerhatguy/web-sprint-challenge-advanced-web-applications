@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router";
 import useForm from "../hooks/useForm";
 import axios from "axios";
 
@@ -11,12 +12,14 @@ const Login = () => {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
   const [formState, handleChange, error] = useForm(initialState);
+  const { push } = useHistory()
 
   const handleSubmit = (event) => {
     event.preventDefault();
     axios.post("http://localhost:5000/api/login", formState)
       .then(res => {
         localStorage.setItem("token", res.data.payload)
+        push("/")
       })
       .catch(err => {
         console.log(err)
@@ -41,7 +44,7 @@ const Login = () => {
           <label htmlFor="password">
             Password:
             <input 
-              type="text" 
+              type="password" 
               id="password" 
               name="password" 
               value={formState.value}
