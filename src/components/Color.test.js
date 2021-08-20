@@ -10,9 +10,14 @@ const mockColor = {
     color: "aliceblue",
     id: 1,
 }
+const mockColorBlank = {
+    code: { hex: null },
+    color: null,
+    id: null,
+}
 
 test("Renders without errors with blank color passed into component", () => {
-    render(<Color color={mockColor}/>)
+    render(<Color color={mockColorBlank}/>)
 });
   
 test("Renders the color passed into component", () => {
