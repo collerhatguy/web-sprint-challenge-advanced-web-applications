@@ -51,7 +51,7 @@ const Login = () => {
               onChange={handleChange}
             />
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit" id="submit">Submit</button>
         </form>
       </div>
 
